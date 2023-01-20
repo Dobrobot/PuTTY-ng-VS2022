@@ -1,0 +1,634 @@
+diff --git a/adb/adb.vcxproj b/adb/adb.vcxproj
+index 322cdcc..45c4c91 100644
+--- a/adb/adb.vcxproj
++++ b/adb/adb.vcxproj
+@@ -21,12 +21,13 @@
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{C707947D-11F3-46FD-8831-D870D623511D}</ProjectGuid>
+     <RootNamespace>adb</RootNamespace>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+@@ -45,7 +46,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/library/base/base.vcxproj b/library/base/base.vcxproj
+index e1e62a5..d797878 100644
+--- a/library/base/base.vcxproj
++++ b/library/base/base.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{B762AF39-B217-41F2-9D7B-E55EDB99F9CC}</ProjectGuid>
+     <RootNamespace>base</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,12 +35,12 @@
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+diff --git a/library/base/file_path.h b/library/base/file_path.h
+index 0619b17..d03e605 100644
+--- a/library/base/file_path.h
++++ b/library/base/file_path.h
+@@ -97,7 +97,7 @@
+ #define __base_file_path_h__
+ 
+ #pragma once
+-
++#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
+ #include <hash_set>
+ #include <vector>
+ 
+diff --git a/library/base/metric/stats_table.h b/library/base/metric/stats_table.h
+index e8c17b9..12f952b 100644
+--- a/library/base/metric/stats_table.h
++++ b/library/base/metric/stats_table.h
+@@ -18,6 +18,7 @@
+ 
+ #pragma once
+ 
++#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
+ #include <hash_map>
+ #include <string>
+ 
+diff --git a/library/base/path_service.cpp b/library/base/path_service.cpp
+index f36527f..add776e 100644
+--- a/library/base/path_service.cpp
++++ b/library/base/path_service.cpp
+@@ -5,6 +5,7 @@
+ #include <shellapi.h>
+ #include <shlobj.h>
+ 
++#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
+ #include <hash_map>
+ 
+ #include "file_path.h"
+diff --git a/library/base/string_piece.cpp b/library/base/string_piece.cpp
+index 7556880..a5d1f6d 100644
+--- a/library/base/string_piece.cpp
++++ b/library/base/string_piece.cpp
+@@ -2,6 +2,7 @@
+ #include "string_piece.h"
+ 
+ #include <algorithm>
++#include <ostream>
+ 
+ std::ostream& operator<<(std::ostream& o, const base::StringPiece& piece)
+ {
+diff --git a/library/bubble/bubble.vcxproj b/library/bubble/bubble.vcxproj
+index d2f4439..71d6718 100644
+--- a/library/bubble/bubble.vcxproj
++++ b/library/bubble/bubble.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{6E501D02-9396-4B35-970C-9144AD7404FC}</ProjectGuid>
+     <RootNamespace>bubble</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,12 +35,12 @@
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+diff --git a/library/skia/skia.vcxproj b/library/skia/skia.vcxproj
+index 6b915b9..810be9d 100644
+--- a/library/skia/skia.vcxproj
++++ b/library/skia/skia.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{DAB5E18C-A6F3-41B0-A630-87BC95129ECA}</ProjectGuid>
+     <RootNamespace>skia</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,12 +35,12 @@
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+diff --git a/library/ui_base/shell_dialogs/select_file_dialog_win.cc b/library/ui_base/shell_dialogs/select_file_dialog_win.cc
+index b3f2474..4efec7a 100644
+--- a/library/ui_base/shell_dialogs/select_file_dialog_win.cc
++++ b/library/ui_base/shell_dialogs/select_file_dialog_win.cc
+@@ -606,10 +606,10 @@ void SelectFileDialogImpl::SelectFileImpl(
+                                      file_types, file_type_index,
+                                      default_extension, BeginRun(owner),
+                                      owner, params);
+-  execute_params.run_state.dialog_thread->message_loop()->PostTask(
++//  execute_params.run_state.dialog_thread->message_loop()->PostTask(
+       /*FROM_HERE,*/
+-      base::Bind(&SelectFileDialogImpl::ExecuteSelectFile, this,
+-                 execute_params));
++//      base::Bind(&SelectFileDialogImpl::ExecuteSelectFile, this,
++//                 execute_params));
+ }
+ 
+ bool SelectFileDialogImpl::HasMultipleFileTypeChoicesImpl() {
+@@ -665,24 +665,24 @@ void SelectFileDialogImpl::ExecuteSelectFile(
+     std::vector<FilePath> paths;
+     if (RunOpenMultiFileDialog(params.title, filter,
+                                params.run_state.owner, &paths)) {
+-      params.ui_proxy->PostTask(
++//      params.ui_proxy->PostTask(
+       /*    FROM_HERE,*/
+-          base::Bind(&SelectFileDialogImpl::MultiFilesSelected, this, paths,
+-                     params.params, params.run_state));
++//          base::Bind(&SelectFileDialogImpl::MultiFilesSelected, this, paths,
++//                     params.params, params.run_state));
+       return;
+     }
+   }
+ 
+   if (success) {
+-      params.ui_proxy->PostTask(
++//      params.ui_proxy->PostTask(
+     /*    FROM_HERE,*/
+-        base::Bind(&SelectFileDialogImpl::FileSelected, this, path,
+-                   filter_index, params.params, params.run_state));
++//        base::Bind(&SelectFileDialogImpl::FileSelected, this, path,
++//                   filter_index, params.params, params.run_state));
+   } else {
+-      params.ui_proxy->PostTask(
++//      params.ui_proxy->PostTask(
+         //FROM_HERE,
+-        base::Bind(&SelectFileDialogImpl::FileNotSelected, this, params.params,
+-                   params.run_state));
++//        base::Bind(&SelectFileDialogImpl::FileNotSelected, this, params.params,
++//                   params.run_state));
+   }
+ }
+ 
+diff --git a/library/ui_base/ui_base.vcxproj b/library/ui_base/ui_base.vcxproj
+index 64ca254..8bff1e1 100644
+--- a/library/ui_base/ui_base.vcxproj
++++ b/library/ui_base/ui_base.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{57285F70-013F-41B8-AA7F-4FBFA1005372}</ProjectGuid>
+     <RootNamespace>ui_base</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,12 +35,12 @@
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+diff --git a/library/ui_gfx/codec/png_codec.h b/library/ui_gfx/codec/png_codec.h
+index 99fb057..5263586 100644
+--- a/library/ui_gfx/codec/png_codec.h
++++ b/library/ui_gfx/codec/png_codec.h
+@@ -5,6 +5,7 @@
+ #pragma once
+ 
+ #include <vector>
++#include <string>
+ 
+ #include "base/basic_types.h"
+ 
+diff --git a/library/ui_gfx/ui_gfx.vcxproj b/library/ui_gfx/ui_gfx.vcxproj
+index f88cb89..35106ea 100644
+--- a/library/ui_gfx/ui_gfx.vcxproj
++++ b/library/ui_gfx/ui_gfx.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{B3729B7B-E55E-4B0B-ABAE-F00D31623867}</ProjectGuid>
+     <RootNamespace>ui_gfx</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,12 +35,12 @@
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+diff --git a/library/view/controls/tabbed_pane/native_tabbed_pane_win.h b/library/view/controls/tabbed_pane/native_tabbed_pane_win.h
+index bad3b47..f885b97 100644
+--- a/library/view/controls/tabbed_pane/native_tabbed_pane_win.h
++++ b/library/view/controls/tabbed_pane/native_tabbed_pane_win.h
+@@ -76,7 +76,7 @@ namespace view
+         std::vector<View*> tab_views_;
+ 
+         // The tab's title strings.
+-        std::vector<const std::wstring> tab_titles_;
++        std::vector<std::wstring> tab_titles_;
+ 
+         // The index of the selected tab.
+         int selected_index_;
+diff --git a/library/view/controls/tabbed_pane/native_tabbed_pane_wrapper.h b/library/view/controls/tabbed_pane/native_tabbed_pane_wrapper.h
+index 489b1ec..cb69d3b 100644
+--- a/library/view/controls/tabbed_pane/native_tabbed_pane_wrapper.h
++++ b/library/view/controls/tabbed_pane/native_tabbed_pane_wrapper.h
+@@ -5,6 +5,8 @@
+ #pragma once
+ 
+ #include <windows.h>
++#include <vector>
++#include <string>
+ 
+ namespace gfx
+ {
+diff --git a/library/view/view.vcxproj b/library/view/view.vcxproj
+index 9cb0d0a..ea9928d 100644
+--- a/library/view/view.vcxproj
++++ b/library/view/view.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{3F19C1C0-7F28-4DF0-84CC-C69FFB55F359}</ProjectGuid>
+     <RootNamespace>view</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,12 +35,12 @@
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+@@ -86,6 +87,7 @@
+       <WarningLevel>Level3</WarningLevel>
+       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+       <DisableSpecificWarnings>4244;4267;4355;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
++      <LanguageStandard>Default</LanguageStandard>
+     </ClCompile>
+     <Lib>
+       <OutputFile>../../x86/Debug/lib/lib_view-vc90-mt-sd.lib</OutputFile>
+diff --git a/putty-ng/putty-ng.vcxproj b/putty-ng/putty-ng.vcxproj
+index 620f865..631cf2f 100644
+--- a/putty-ng/putty-ng.vcxproj
++++ b/putty-ng/putty-ng.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{160E8D6B-928C-4BB5-9372-4B39E6B7E3DC}</ProjectGuid>
+     <RootNamespace>putty-ng</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,13 +35,13 @@
+     <ConfigurationType>Application</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <UseOfAtl>Static</UseOfAtl>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+diff --git a/putty/putty.vcxproj b/putty/putty.vcxproj
+index 1e5e34d..5012339 100644
+--- a/putty/putty.vcxproj
++++ b/putty/putty.vcxproj
+@@ -21,13 +21,14 @@
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{B7CA5816-A5B8-4496-8A16-960F20D9CF6F}</ProjectGuid>
+     <RootNamespace>putty</RootNamespace>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>MultiByte</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+@@ -47,7 +48,7 @@
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+@@ -93,6 +94,7 @@
+       <PrecompiledHeaderFile>
+       </PrecompiledHeaderFile>
+       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
++      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+     </ClCompile>
+     <Link>
+       <GenerateDebugInformation>true</GenerateDebugInformation>
+diff --git a/putty/sshsha.c b/putty/sshsha.c
+index 20f0d0d..952e78d 100644
+--- a/putty/sshsha.c
++++ b/putty/sshsha.c
+@@ -408,7 +408,7 @@ const struct ssh2_macalg ssh_hmac_sha1_96_buggy = {
+ 
+ #ifdef COMPILER_SUPPORTS_SHA_NI
+ 
+-#if defined _MSC_VER && defined _M_AMD64
++#if defined _MSC_VER //&& defined _M_AMD64
+ # include <intrin.h>
+ #endif
+ 
+@@ -455,7 +455,7 @@ int supports_sha_ni(void)
+ 
+ int supports_sha_ni(void)
+ {
+-    unsigned int CPUInfo[4];
++    int CPUInfo[4];
+     __cpuid(CPUInfo, 0);  
+     if (CPUInfo[0] < 7)
+         return 0;
+diff --git a/putty/windows/wingss.c b/putty/windows/wingss.c
+index 844e585..5485469 100644
+--- a/putty/windows/wingss.c
++++ b/putty/windows/wingss.c
+@@ -38,7 +38,7 @@
+ 
+ const int ngsslibs = 3;
+ const char *const gsslibnames[3] = {
+-    "MIT Kerberos GSSAPI"MIT_KERB_SUFFIX".DLL",
++    "MIT Kerberos GSSAPI" MIT_KERB_SUFFIX ".DLL",
+     "Microsoft SSPI SECUR32.DLL",
+     "User-specified GSSAPI DLL",
+ };
+@@ -140,7 +140,7 @@ struct ssh_gss_liblist *ssh_gss_setup(Conf *conf)
+                     p_AddDllDirectory(dllPath);
+                     sfree(dllPath);
+                 }
+-                strcat (buffer, "\\gssapi"MIT_KERB_SUFFIX".dll");
++                strcat (buffer, "\\gssapi" MIT_KERB_SUFFIX ".dll");
+                 module = LoadLibraryEx (buffer, NULL,
+                                         LOAD_LIBRARY_SEARCH_SYSTEM32 |
+                                         LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR |
+@@ -155,7 +155,7 @@ struct ssh_gss_liblist *ssh_gss_setup(Conf *conf)
+ 	    &list->libraries[list->nlibraries++];
+ 
+ 	lib->id = 0;
+-	lib->gsslogmsg = "Using GSSAPI from GSSAPI"MIT_KERB_SUFFIX".DLL";
++	lib->gsslogmsg = "Using GSSAPI from GSSAPI" MIT_KERB_SUFFIX ".DLL";
+ 	lib->handle = (void *)module;
+ 
+ #define BIND_GSS_FN(name) \
+diff --git a/putty/windows/winnet.c b/putty/windows/winnet.c
+index 7bb65ac..2f97d8e 100644
+--- a/putty/windows/winnet.c
++++ b/putty/windows/winnet.c
+@@ -320,7 +320,7 @@ void sk_init(void)
+     GET_WINDOWS_FUNCTION(winsock_module, getservbyname);
+     GET_WINDOWS_FUNCTION(winsock_module, inet_addr);
+     GET_WINDOWS_FUNCTION(winsock_module, inet_ntoa);
+-#if (defined _MSC_VER && _MSC_VER < 1900) || defined __MINGW32__
++#if (defined _MSC_VER && _MSC_VER < 2000) || defined __MINGW32__
+     /* Older Visual Studio, and MinGW as of Ubuntu 16.04, don't know
+      * about this function at all, so can't type-check it */
+     GET_WINDOWS_FUNCTION_NO_TYPECHECK(winsock_module, inet_ntop);
+diff --git a/putty_view/putty_view.vcxproj b/putty_view/putty_view.vcxproj
+index 1a11a5a..0b24423 100644
+--- a/putty_view/putty_view.vcxproj
++++ b/putty_view/putty_view.vcxproj
+@@ -21,13 +21,14 @@
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{71E270A4-9025-43E2-9827-EC8ECB079CF7}</ProjectGuid>
+     <RootNamespace>putty_view</RootNamespace>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+@@ -47,7 +48,7 @@
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+diff --git a/resource/resource.rc b/resource/resource.rc
+index 04375d7..aafc9a5 100644
+--- a/resource/resource.rc
++++ b/resource/resource.rc
+@@ -9,8 +9,8 @@
+ //
+ // Generated from the TEXTINCLUDE 2 resource.
+ //
+-#include "afxres.h"
+-
++//#include "afxres.h"
++#include <Windows.h>
+ /////////////////////////////////////////////////////////////////////////////
+ #undef APSTUDIO_READONLY_SYMBOLS
+ 
+@@ -30,6 +30,7 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+ 
+ // Note that we don't handle any of the VK_BROWSER_* commands here. We will
+ // pick those up in the WM_APPCOMMAND message.
++/*
+ IDR_MAINFRAME ACCELERATORS
+ BEGIN
+     VK_LEFT,        IDC_BACK,                   VIRTKEY, ALT
+@@ -120,6 +121,7 @@ BEGIN
+     VK_ADD,         IDC_ZOOM_PLUS,              VIRTKEY, CONTROL
+ END
+ 
++
+ IDR_CHROMEFRAME ACCELERATORS
+ BEGIN
+     "I",            IDC_DEV_TOOLS,              VIRTKEY, CONTROL, SHIFT
+@@ -134,6 +136,7 @@ BEGIN
+     VK_OEM_PLUS,    IDC_ZOOM_PLUS,              VIRTKEY, CONTROL, SHIFT
+     VK_ADD,         IDC_ZOOM_PLUS,              VIRTKEY, CONTROL
+ END
++*/
+ 
+ #ifdef APSTUDIO_INVOKED
+ /////////////////////////////////////////////////////////////////////////////
+diff --git a/resource/resource.vcxproj b/resource/resource.vcxproj
+index f4e3bac..68f44f8 100644
+--- a/resource/resource.vcxproj
++++ b/resource/resource.vcxproj
+@@ -22,6 +22,7 @@
+     <ProjectGuid>{79407184-D31F-4D79-AF0B-32C7A6E71747}</ProjectGuid>
+     <RootNamespace>resource</RootNamespace>
+     <Keyword>Win32Proj</Keyword>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+@@ -34,12 +35,12 @@
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+diff --git a/vendor/boost/config/compiler/visualc.hpp b/vendor/boost/config/compiler/visualc.hpp
+index 83e8e3d..3544d28 100644
+--- a/vendor/boost/config/compiler/visualc.hpp
++++ b/vendor/boost/config/compiler/visualc.hpp
+@@ -315,7 +315,7 @@
+ 
+ //
+ // last known and checked version is 1700 (VC11, aka 2011):
+-#if (_MSC_VER > 1700)
++#if (_MSC_VER > 1934) // VS2022
+ #  if defined(BOOST_ASSERT_CONFIG)
+ #     error "Unknown compiler version - please run the configure tests and report the results"
+ #  else
+diff --git a/vendor/framework-nd/framework-nd.vcxproj b/vendor/framework-nd/framework-nd.vcxproj
+index 2057259..02c9f17 100644
+--- a/vendor/framework-nd/framework-nd.vcxproj
++++ b/vendor/framework-nd/framework-nd.vcxproj
+@@ -21,13 +21,14 @@
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{06084ADD-B115-414D-9659-894A8865E713}</ProjectGuid>
+     <RootNamespace>fsm</RootNamespace>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>MultiByte</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+@@ -47,7 +48,7 @@
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">
+diff --git a/vendor/libevent/libevent.vcxproj b/vendor/libevent/libevent.vcxproj
+index ff5ff7a..17e915f 100644
+--- a/vendor/libevent/libevent.vcxproj
++++ b/vendor/libevent/libevent.vcxproj
+@@ -44,13 +44,14 @@
+   <PropertyGroup Label="Globals">
+     <ProjectGuid>{70F53B4C-505A-4FAE-9871-94824D9FE12B}</ProjectGuid>
+     <RootNamespace>liblibevent</RootNamespace>
++    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+     <CharacterSet>Unicode</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+@@ -70,7 +71,7 @@
+     <UseDebugLibraries>false</UseDebugLibraries>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+-    <PlatformToolset>v120_xp</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+   <ImportGroup Label="ExtensionSettings">

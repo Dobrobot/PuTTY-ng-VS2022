@@ -76,7 +76,7 @@ namespace view
         std::vector<View*> tab_views_;
 
         // The tab's title strings.
-        std::vector<const std::wstring> tab_titles_;
+        std::vector<std::wstring> tab_titles_;
 
         // The index of the selected tab.
         int selected_index_;

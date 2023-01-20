@@ -38,7 +38,7 @@
 
 const int ngsslibs = 3;
 const char *const gsslibnames[3] = {
-    "MIT Kerberos GSSAPI"MIT_KERB_SUFFIX".DLL",
+    "MIT Kerberos GSSAPI" MIT_KERB_SUFFIX ".DLL",
     "Microsoft SSPI SECUR32.DLL",
     "User-specified GSSAPI DLL",
 };
@@ -140,7 +140,7 @@ struct ssh_gss_liblist *ssh_gss_setup(Conf *conf)
                     p_AddDllDirectory(dllPath);
                     sfree(dllPath);
                 }
-                strcat (buffer, "\\gssapi"MIT_KERB_SUFFIX".dll");
+                strcat (buffer, "\\gssapi" MIT_KERB_SUFFIX ".dll");
                 module = LoadLibraryEx (buffer, NULL,
                                         LOAD_LIBRARY_SEARCH_SYSTEM32 |
                                         LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR |
@@ -155,7 +155,7 @@ struct ssh_gss_liblist *ssh_gss_setup(Conf *conf)
 	    &list->libraries[list->nlibraries++];
 
 	lib->id = 0;
-	lib->gsslogmsg = "Using GSSAPI from GSSAPI"MIT_KERB_SUFFIX".DLL";
+	lib->gsslogmsg = "Using GSSAPI from GSSAPI" MIT_KERB_SUFFIX ".DLL";
 	lib->handle = (void *)module;
 
 #define BIND_GSS_FN(name) \

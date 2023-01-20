@@ -5,6 +5,7 @@
 #include <shellapi.h>
 #include <shlobj.h>
 
+#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
 #include <hash_map>
 
 #include "file_path.h"

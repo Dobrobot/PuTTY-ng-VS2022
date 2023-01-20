@@ -97,7 +97,7 @@
 #define __base_file_path_h__
 
 #pragma once
-
+#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS
 #include <hash_set>
 #include <vector>
 

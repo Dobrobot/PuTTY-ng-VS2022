@@ -606,10 +606,10 @@ void SelectFileDialogImpl::SelectFileImpl(
                                      file_types, file_type_index,
                                      default_extension, BeginRun(owner),
                                      owner, params);
-  execute_params.run_state.dialog_thread->message_loop()->PostTask(
+//  execute_params.run_state.dialog_thread->message_loop()->PostTask(
       /*FROM_HERE,*/
-      base::Bind(&SelectFileDialogImpl::ExecuteSelectFile, this,
-                 execute_params));
+//      base::Bind(&SelectFileDialogImpl::ExecuteSelectFile, this,
+//                 execute_params));
 }
 
 bool SelectFileDialogImpl::HasMultipleFileTypeChoicesImpl() {
@@ -665,24 +665,24 @@ void SelectFileDialogImpl::ExecuteSelectFile(
     std::vector<FilePath> paths;
     if (RunOpenMultiFileDialog(params.title, filter,
                                params.run_state.owner, &paths)) {
-      params.ui_proxy->PostTask(
+//      params.ui_proxy->PostTask(
       /*    FROM_HERE,*/
-          base::Bind(&SelectFileDialogImpl::MultiFilesSelected, this, paths,
-                     params.params, params.run_state));
+//          base::Bind(&SelectFileDialogImpl::MultiFilesSelected, this, paths,
+//                     params.params, params.run_state));
       return;
     }
   }
 
   if (success) {
-      params.ui_proxy->PostTask(
+//      params.ui_proxy->PostTask(
     /*    FROM_HERE,*/
-        base::Bind(&SelectFileDialogImpl::FileSelected, this, path,
-                   filter_index, params.params, params.run_state));
+//        base::Bind(&SelectFileDialogImpl::FileSelected, this, path,
+//                   filter_index, params.params, params.run_state));
   } else {
-      params.ui_proxy->PostTask(
+//      params.ui_proxy->PostTask(
         //FROM_HERE,
-        base::Bind(&SelectFileDialogImpl::FileNotSelected, this, params.params,
-                   params.run_state));
+//        base::Bind(&SelectFileDialogImpl::FileNotSelected, this, params.params,
+//                   params.run_state));
   }
 }
 

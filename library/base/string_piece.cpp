@@ -2,6 +2,7 @@
 #include "string_piece.h"
 
 #include <algorithm>
+#include <ostream>
 
 std::ostream& operator<<(std::ostream& o, const base::StringPiece& piece)
 {

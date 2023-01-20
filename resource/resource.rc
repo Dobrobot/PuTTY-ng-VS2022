@@ -9,8 +9,8 @@
 //
 // Generated from the TEXTINCLUDE 2 resource.
 //
-#include "afxres.h"
-
+//#include "afxres.h"
+#include <Windows.h>
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
@@ -30,6 +30,7 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 
 // Note that we don't handle any of the VK_BROWSER_* commands here. We will
 // pick those up in the WM_APPCOMMAND message.
+/*
 IDR_MAINFRAME ACCELERATORS
 BEGIN
     VK_LEFT,        IDC_BACK,                   VIRTKEY, ALT
@@ -120,6 +121,7 @@ BEGIN
     VK_ADD,         IDC_ZOOM_PLUS,              VIRTKEY, CONTROL
 END
 
+
 IDR_CHROMEFRAME ACCELERATORS
 BEGIN
     "I",            IDC_DEV_TOOLS,              VIRTKEY, CONTROL, SHIFT
@@ -134,6 +136,7 @@ BEGIN
     VK_OEM_PLUS,    IDC_ZOOM_PLUS,              VIRTKEY, CONTROL, SHIFT
     VK_ADD,         IDC_ZOOM_PLUS,              VIRTKEY, CONTROL
 END
+*/
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

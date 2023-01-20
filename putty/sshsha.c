@@ -408,7 +408,7 @@ const struct ssh2_macalg ssh_hmac_sha1_96_buggy = {
 
 #ifdef COMPILER_SUPPORTS_SHA_NI
 
-#if defined _MSC_VER && defined _M_AMD64
+#if defined _MSC_VER //&& defined _M_AMD64
 # include <intrin.h>
 #endif
 
@@ -455,7 +455,7 @@ int supports_sha_ni(void)
 
 int supports_sha_ni(void)
 {
-    unsigned int CPUInfo[4];
+    int CPUInfo[4];
     __cpuid(CPUInfo, 0);  
     if (CPUInfo[0] < 7)
         return 0;
