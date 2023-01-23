@@ -7,7 +7,7 @@
     </LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LocalDebuggerCommand>..\x64\Debug\bin\putty-ng.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommand>..\x64\Debug\putty-ng.exe</LocalDebuggerCommand>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommandArguments />
   </PropertyGroup>
